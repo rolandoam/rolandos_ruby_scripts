@@ -23,7 +23,7 @@ require 'fileutils'
 #
 # For more info on the technique used by this script:
 #
-#   http://www.mikerubel.org/computers/rsync_snapshots/ for more info
+#   http://www.mikerubel.org/computers/rsync_snapshots/
 class Backup
   include FileUtils
 
