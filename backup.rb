@@ -91,8 +91,13 @@ end
 if __FILE__ == $0
   if Process.euid != 0
     puts "must be run as root!!"
-    exit(0)
+    exit(1)
   end
+  if ARGV.size != 1 || !%w(daily weekly).include?(ARGV[0])
+    puts "usage: #{$0} [daily|weekly]"
+    exit(1)
+  end
+
   b = Backup.new
   if ENV['DEBUG']
     dirs = ["/home/rolando"]
@@ -100,14 +105,5 @@ if __FILE__ == $0
     # you might want to change this
     dirs = Dir["/winhome/users/*"]
   end
-  if ARGV.size != 1
-    puts "usage: #{$0} [daily|weekly]"
-    exit(1)
-  end
-
-  if ARGV[0] == "daily"
-    b.daily(dirs)
-  elsif ARGV[0] == "weekly"
-    b.weekly(dirs)
-  end
+  b.send(ARGV[0], dirs)
 end
