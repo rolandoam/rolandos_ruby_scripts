@@ -2,3 +2,8 @@ h2. backup.rb
 
 This is poor man's Time Machine. Tested in a Ubuntu 7.10 server, working
 as a samba domain server, with 12 users.
+
+h2. word_count.cgi
+
+A small word counter, made by request of a friend. It works as a CGI
+script, so you just need to place it somewhere executable :-)
