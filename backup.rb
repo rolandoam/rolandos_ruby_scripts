@@ -42,7 +42,7 @@ class Backup
   private
   # incrementaly backup dirs with prefix, keep upto +keep+ copies
   def backup(dirs, prefix, keep = 4)
-    write_snapshots(false) do
+    write_snapshots do
       dirs.sort.each { |dir|
         target = File.basename(dir)
         puts "#{prefix} incremental backup for #{target}"
