@@ -74,7 +74,7 @@ class Backup
   # perform changes on the snapshots mount point. This will create a
   # small window of insecurity. Check the reference (above) on how to
   # overcome this.
-  def write_snapshots(email, &block)
+  def write_snapshots(email = false, &block)
     begin
       system("mount -o remount,rw #{BACKUP_DEST}")
       yield
